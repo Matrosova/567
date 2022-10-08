@@ -17,7 +17,7 @@ export const shopsModule = {
         async getShops({commit}){
             
             try{
-                const response = await axios.get("http://127.0.0.1:8000/api/shop/")
+                const response = await axios.get("https://matrosova-django-api.herokuapp.com/api/shop/")
                 console.log(response)
                 commit("setShops", response.data)
             }

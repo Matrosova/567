@@ -37,7 +37,7 @@ export const couponsModule = {
         async getCoupons({commit}){
             
             try{
-                const response = await axios.get("http://127.0.0.1:8000/api/coupon/")
+                const response = await axios.get("https://matrosova-django-api.herokuapp.com/api/coupon/")
                 console.log(response)
                 commit("setCoupons", response.data)
             }
@@ -59,7 +59,7 @@ export const couponsModule = {
             for (var i = 0; i<state.state.coupons.shops.length; i++){
               fd.append('shops',state.state.coupons.shops[i]);
             }
-              axios.post('http://127.0.0.1:8000/api/coupon/', fd, config)
+              axios.post('https://matrosova-django-api.herokuapp.com/api/coupon/', fd, config)
               .then(response => {
                 if(response.status == 201){
                 location.pathname="/coupons"}
@@ -73,7 +73,7 @@ export const couponsModule = {
 
             try{
                 
-                axios.delete('http://127.0.0.1:8000/api/coupon/'+id+'/').then(()=>dispatch('getCoupons'))
+                axios.delete('https://matrosova-django-api.herokuapp.com/api/coupon/'+id+'/').then(()=>dispatch('getCoupons'))
                 
             }
             catch(error){
